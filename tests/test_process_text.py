@@ -27,7 +27,7 @@ def test_process_file():
 
     lines = process_text_file(width=40)
 
-    output_file = OUTPUT_DIR / "teste_quebrado.txt"
+    output_file = OUTPUT_DIR / "test_broken.txt"
     assert output_file.exists()
 
     assert all(len(line) <= 40 for line in lines if line.strip() != "")
