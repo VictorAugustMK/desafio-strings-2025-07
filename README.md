@@ -60,14 +60,15 @@ Ou via Postman
   "width": 0
 }
 ```
-Os arquivos processados são salvos na pasta output/ com o nome original acrescido de _quebrado.txt.
+`OBS`: Se nunhum dos parâmetro for preenchido será feito a leitura de todos os arquivos .txt dentro da pasta com padrão 40 caracteres por linha.
+Os arquivos processados são salvos na pasta output/ com o nome original acrescido de _break.txt.
 
 ## 🧪 Testes
 Rodar localmente com:
 ```bash
 pytest  
 ```
-- Rodar dentro do container Docker:
+- Rodar dentro do container Docker de testes:
 ```bash
 docker compose -f docker-compose.test.yml up --build
 ```
