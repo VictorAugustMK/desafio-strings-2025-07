@@ -1,25 +1,76 @@
-# Desafios Op2B
+# 📝 Projeto FastAPI para Quebra de Linhas em Arquivos .txt
 
-Este repositório contém os desafios de codificação para a etapa de teste técnico da seleção de talentos da Op2B. 
-O problema a ser tratado diz respeito à manipulação de strings e desenvolvimento de APIs, encontrando-se na pasta [strings](strings/README.md)
+API para processar arquivos .txt, quebrando linhas respeitando largura máxima e parágrafos.
 
+## 🏗️ Tecnologias
+- FastAPI
+- Python 3.10+
+- Uvicorn
+- Docker & Docker Compose
+- Pydantic
+- Pytest
 
-### Como entregar o seu desafio
+## 📁 Estrutura
+O projeto está organizado em módulos:
 
-Você deve fazer um fork deste projeto para começar a trabalhar em seu próprio ambiente. Ao concluir, faça um *push* no seu próprio repositório e envie o link correspondente para `<rh@op2b.com.br>` .
+- `app/` – código fonte da aplicação
+- `app/services` – lógica de processamento de texto
+- `app/config.py` – configurações e variáveis de ambiente
+- `app/models.py` – schemas Pydantic para requisições
+- `tests/ – testes` unitários e de integração
 
-A implementação deve ficar na pasta correspondente ao desafio. Fique à vontade para adicionar qualquer tipo de conteúdo que julgue útil ao projeto, alterar/acrescentar um README com instruções de como executá-lo, etc.
+## ⚙️ Configuração
+1. Clone o repositório:
+```bash
+git clone https://github.com/VictorAugustMK/desafio-strings-2025-07.git  
+cd desafio-strings-2025-07
+```
+2. Crie o arquivo .env (exemplo):
+```bash
+INPUT_PATH=./input  
+OUTPUT_PATH=./output
+```
+3. Inicie o projeto com Docker:
+```bash
+docker compose up --build
+```
+4. Acesse:
+- API: http://localhost:8001
+- Docs Swagger: http://localhost:8001/docs
+  
+## 🚀 Como usar a API
+Endpoint: POST /upload/
+Envie um ou mais arquivos .txt para processar a quebra de linhas.
 
-**Obs**:
-- Você não deve fazer um Pull Request para este projeto!
-- Utilize as versões mais atuais da linguagem e dos frameworks que escolher para desenvolver (JavaScript ES6+; Python 3, etc).
+Parâmetros:
 
-### Extras
+`files (opcional)`: arquivo(s) .txt
 
-- Descrever o processo de resolução dos desafios;
-- Descrever como utilizar a sua solução;
-- Ponderar quais casos de erros e exceções devem ser tratados e escolha como eles serão tratados;
-- Considerar a inclusão de testes unitários ou de integração;
-- Considerar a utilização de containers.
+`width (opcional)`: largura máxima da linha (padrão 40)
+Exemplo curl:
+```
+curl -X POST http://localhost:8000/upload/ \  
+  -F "files=seuarquivo.txt" \  
+  -F "width=40"
+```
+Ou via Postman
+```
+{
+  "path": "",
+  "width": 0
+}
+```
+`OBS: Se nunhum dos parâmetro for preenchido será feito a leitura de todos os arquivos .txt dentro da pasta com padrão 40 caracteres por linha.`
 
-Boas implementações! 🎉
+Os arquivos processados são salvos na pasta output/ com o nome original acrescido de _break.txt.
+
+## 🧪 Testes
+Rodar localmente com:
+```bash
+pytest  
+```
+- Rodar dentro do container Docker de testes:
+```bash
+docker compose -f docker-compose.test.yml up --build
+```
+Testes cobrem processamento de arquivos, múltiplos parágrafos, arquivos vazios, inexistentes, e validação da saída.
