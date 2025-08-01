@@ -43,11 +43,11 @@ def process_text_file(filename: str = "", width: int | None = None) -> list[str]
     if not filename:
         file_path = next(INPUT_DIR.glob("*.txt"), None)
         if not file_path:
-            raise FileNotFoundError("Nenhum arquivo .txt encontrado na pasta de entrada.")
+            raise FileNotFoundError("No .txt files found in input folder.")
     else:
         file_path = INPUT_DIR / filename
         if not file_path.exists():
-            raise FileNotFoundError(f"Arquivo '{filename}' não encontrado em {INPUT_DIR}.")
+            raise FileNotFoundError(f"File '{filename}' not found in {INPUT_DIR}.")
 
     text = file_path.read_text(encoding="utf-8")
 
@@ -64,7 +64,7 @@ def process_text_file(filename: str = "", width: int | None = None) -> list[str]
     OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 
     base_name = file_path.stem
-    output_file = OUTPUT_DIR / f"{base_name}_quebrado.txt"
+    output_file = OUTPUT_DIR / f"{base_name}_broken.txt"
     output_file.write_text("\n".join(lines), encoding="utf-8")
 
     return lines
