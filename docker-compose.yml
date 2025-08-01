@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  api_line_break:
+    build: .
+    container_name: api_line_break
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./input:/input
+      - ./output:/output
+    env_file:
+      - .env
