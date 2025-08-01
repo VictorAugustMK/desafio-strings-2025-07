@@ -1,6 +1,5 @@
 
 from app.config import INPUT_DIR, OUTPUT_DIR
-import os
 import re
 
 def justify_line(line: str, width: int) -> str:
@@ -64,7 +63,7 @@ def process_text_file(filename: str = "", width: int | None = None) -> list[str]
     OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 
     base_name = file_path.stem
-    output_file = OUTPUT_DIR / f"{base_name}_broken.txt"
+    output_file = OUTPUT_DIR / f"{base_name}_break.txt"
     output_file.write_text("\n".join(lines), encoding="utf-8")
 
     return lines

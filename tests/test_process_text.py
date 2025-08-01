@@ -10,13 +10,13 @@ def setup_and_teardown():
 
 # Disabling delete of txt output.
 
-#     for f in OUTPUT_DIR.glob("*"):
-#         f.unlink()
-#
-#     yield
-#
-#     for f in OUTPUT_DIR.glob("*"):
-#         f.unlink()
+    # for f in OUTPUT_DIR.glob("*"):
+    #     f.unlink()
+    #
+    # yield
+    #
+    # for f in OUTPUT_DIR.glob("*"):
+    #     f.unlink()
 
 
 def test_process_file():
@@ -29,7 +29,7 @@ def test_process_file():
 
     lines = process_text_file(width=40)
 
-    output_file = OUTPUT_DIR / "test_broken.txt"
+    output_file = OUTPUT_DIR / "test_break.txt"
     assert output_file.exists()
 
     assert all(len(line) <= 40 for line in lines if line.strip() != "")
