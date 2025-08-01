@@ -1,8 +1,8 @@
-📝 Projeto FastAPI para Quebra de Linhas em Arquivos .txt
+# 📝 Projeto FastAPI para Quebra de Linhas em Arquivos .txt
 
 API para processar arquivos .txt, quebrando linhas respeitando largura máxima e parágrafos.
 
-🏗️ Tecnologias
+## 🏗️ Tecnologias
 - FastAPI
 - Python 3.10+
 - Uvicorn
@@ -10,7 +10,7 @@ API para processar arquivos .txt, quebrando linhas respeitando largura máxima e
 - Pydantic
 - Pytest
 
-📁 Estrutura
+## 📁 Estrutura
 O projeto está organizado em módulos:
 
 - `app/` – código fonte da aplicação
@@ -19,7 +19,7 @@ O projeto está organizado em módulos:
 - `app/models.py` – schemas Pydantic para requisições
 - `tests/ – testes` unitários e de integração
 
-⚙️ Configuração
+## ⚙️ Configuração
 1. Clone o repositório:
 ```bash
 git clone https://github.com/VictorAugustMK/desafio-strings-2025-07.git  
@@ -38,7 +38,7 @@ docker compose up --build
 - API: http://localhost:8001
 - Docs Swagger: http://localhost:8001/docs
   
-🚀 Como usar a API
+## 🚀 Como usar a API
 Endpoint: POST /upload/
 Envie um ou mais arquivos .txt para processar a quebra de linhas.
 
@@ -62,7 +62,7 @@ Ou via Postman
 ```
 Os arquivos processados são salvos na pasta output/ com o nome original acrescido de _quebrado.txt.
 
-🧪 Testes
+## 🧪 Testes
 Rodar localmente com:
 ```bash
 pytest  
