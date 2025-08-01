@@ -1,15 +1,7 @@
-Lorem ipsum dolor sit amet,
-consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore
-et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud
-exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat.
+A obra musical "Admirável Chip Novo", da cantora Pitty, retrata a manipulação das ações humanas em razão do uso das tecnologias, que findam por influenciar o comportamento dos indivíduos. Não obstante, tal questão transcende a arte e mostra-se presente na realidade brasileira através da filtragem de dados na internet e sua utilização como ferramenta de determinação de atitudes, consequência direta do interesse do mercado globalizado e da vulnerabilidade dos usuários. Assim, torna-se fundamental a discussão desses aspectos, a fim do pleno funcionamento da sociedade.
 
-Duis aute irure dolor in
-reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat
-cupidatat non proident, sunt in culpa
-qui officia deserunt mollit anim id
-est laborum.
+Convém ressaltar, a princípio, o estabelecimento do comércio virtual e sua contribuição para a continuidade da problemática. Quanto a esse fator, é válido considerar a alta capacidade publicitária da web, bem como sua consolidação enquanto espaço mercantil - possibilitador de compra e venda de produtos. Sob esse aspecto, o célebre géografo, Milton Santos, afirma a existência de relação entre o desenvolvimento técnico-científico e as demandas da globalização, justificando, assim, a constante oferta de conteúdos culturais e comerciais que podem ser adquiridos pelos usuários, de modo a fortalecer o mercado mundial e o capitalismo.
+
+Paralelo a isso, a imperícia social vinculada ao déficit em letramento digital fomenta a perpetuação do impasse. Nesse viés, as instituições educacionais ainda não são eficazes na educação tecnológica, por não contarem com estrutura profissional e material voltado ao tema. Ademais, a formação de indivíduos vulneráveis possibilita a ação do mecanismo que pode transformar comportamentos, tornando-os passíveis de alienação. Essa conjuntura contraria o Estado proposto pelo filósofo John Locke - assegurador de liberdade -, gerando falsa sensação de autonomia e expondo internautas a um ambiente não transparente, em que decisões são previamente programadas por outrem.
+
+Em suma, faz-se imprescindível a tomada de medidas atenuantes ao entrave abordado. Posto isso, concerne ao Estado, mediante os Ministérios da Educação e Ciência e Tecnologia, a criação de um plano educacional que vise a elucidar a população quanto aos riscos da navegação na rede e à necessidade de adaptação aos novos instrumentos digitais. Tal projeto deve ser instrumentalizado na oferta de aparelhos tecnológicos às escolas, para a promoção de palestras e aulas práticas sobre o uso da tecnologia, mediadas por técnicos e professores da área, objetivando a qualificação dos usuários e a prevenção de casos de manipulação de atitudes. Dessa maneira, o Brasil poderá garantir a liberdade de seus cidadãos e o Estado lockeano poderá ser consolidado.""
