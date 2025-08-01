@@ -35,36 +35,43 @@ def justify_paragraph(paragraph: str, width: int) -> list[str]:
 
     return lines
 
-def process_text_file(filename: str = "", width: int | None = None) -> list[str]:
+def process_text_file(filename: str = "", width: int | None = None) -> dict[str, list[str]]:
     if not width or width <= 0:
         width = 40
 
-    if not filename:
-        file_path = next(INPUT_DIR.glob("*.txt"), None)
-        if not file_path:
-            raise FileNotFoundError("No .txt files found in input folder.")
-    else:
+    files_to_process = []
+
+    if filename:
         file_path = INPUT_DIR / filename
         if not file_path.exists():
             raise FileNotFoundError(f"File '{filename}' not found in {INPUT_DIR}.")
+        files_to_process = [file_path]
+    else:
+        files_to_process = list(INPUT_DIR.glob("*.txt"))
+        if not files_to_process:
+            raise FileNotFoundError("No .txt files found in input folder.")
 
-    text = file_path.read_text(encoding="utf-8")
+    results = {}
 
-    raw_paragraphs = text.split("\n\n")
-    normalized_paragraphs = [re.sub(r'\s+', ' ', p.strip()) for p in raw_paragraphs]
+    for file_path in files_to_process:
+        text = file_path.read_text(encoding="utf-8")
 
-    lines = []
-    for paragraph in normalized_paragraphs:
-        lines.extend(justify_paragraph(paragraph, width))
-        lines.append("")
+        raw_paragraphs = text.split("\n\n")
+        normalized_paragraphs = [re.sub(r'\s+', ' ', p.strip()) for p in raw_paragraphs]
 
-    OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
+        lines = []
+        for paragraph in normalized_paragraphs:
+            lines.extend(justify_paragraph(paragraph, width))
+            lines.append("")
 
-    OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
+        OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 
-    base_name = file_path.stem
-    output_file = OUTPUT_DIR / f"{base_name}_break.txt"
-    output_file.write_text("\n".join(lines), encoding="utf-8")
+        base_name = file_path.stem
+        output_file = OUTPUT_DIR / f"{base_name}_break.txt"
+        output_file.write_text("\n".join(lines), encoding="utf-8")
 
-    return lines
+        results[file_path.name] = lines
+
+    return results
+
 
