@@ -8,13 +8,15 @@ def setup_and_teardown():
     INPUT_DIR.mkdir(parents=True, exist_ok=True)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    for f in OUTPUT_DIR.glob("*"):
-        f.unlink()
+# Disabling delete of txt output.
 
-    yield
-
-    for f in OUTPUT_DIR.glob("*"):
-        f.unlink()
+#     for f in OUTPUT_DIR.glob("*"):
+#         f.unlink()
+#
+#     yield
+#
+#     for f in OUTPUT_DIR.glob("*"):
+#         f.unlink()
 
 
 def test_process_file():
