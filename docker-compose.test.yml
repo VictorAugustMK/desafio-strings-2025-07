@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  tests:
+    build:
+      context: .
+    container_name: api_line_break_tests
+    command: sh -c "ENV=test pytest"
+    volumes:
+      - .:/app
+    env_file:
+      - .env.test

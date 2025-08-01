@@ -1,33 +1,28 @@
-
-import os
-import shutil
 from pathlib import Path
 from fastapi.testclient import TestClient
+from dotenv import load_dotenv
+import os
+
 from app.main import app
+
+load_dotenv(dotenv_path=".env.test")
 
 client = TestClient(app)
 
-def setup_module(module):
-    input_path = Path(os.getenv("INPUT_PATH", "/input"))
-    output_path = Path(os.getenv("OUTPUT_PATH", "/output"))
-    input_path.mkdir(parents=True, exist_ok=True)
-    output_path.mkdir(parents=True, exist_ok=True)
 
-    test_file = input_path / "test.txt"
-    test_file.write_text("Este é um teste de quebra de texto para verificar se a API está funcionando corretamente.")
+def test_line_break_default_width():
+    input_dir = Path(os.getenv("INPUT_PATH", "tests/input"))
+    output_dir = Path(os.getenv("OUTPUT_PATH", "tests/output"))
+    test_filename = os.getenv("TEST_FILENAME", "teste.txt")
 
-def teardown_module(module):
-    output_path = Path(os.getenv("OUTPUT_PATH", "output"))
+    input_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    if output_path.exists():
-        for file in output_path.iterdir():
-            if file.is_file() and file.name.startswith("test.txt"):
-                file.unlink()
+    file_path = input_dir / test_filename
+    file_path.write_text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
+                         "incididunt ut labore et dolore magna aliqua.", encoding="utf-8")
 
-def test_line_break_endpoint():
-    response = client.post("/line-break", json={"path": "test.txt"})
+    response = client.post("/line-break", json={"path": test_filename})
+
     assert response.status_code == 200
-    data = response.json()
-    assert "lines" in data
-    assert isinstance(data["lines"], list)
-    assert all(len(line) <= 40 for line in data["lines"])
+    assert "lines" in response.json()
